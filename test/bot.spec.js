@@ -9,7 +9,7 @@ const hat = require('hat');
 const smoochBot = require('smooch-bot');
 const MemoryStore = smoochBot.MemoryStore;
 const MemoryLock = smoochBot.MemoryLock;
-
+const Bot = smoochBot.Bot;
 
 describe('bot', function() {
     let bot;
