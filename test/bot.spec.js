@@ -61,44 +61,5 @@ describe('bot', function() {
         it('#say', function() {
             return bot.say().should.be.fulfilled;
         });
-
-        it('#getProp', function() {
-            return bot.getProp('foo').should.eventually.be.undefined;
-        });
-
-        it('#setProp', function() {
-            let value = hat();
-            return bot.setProp('foo', value)
-                .then(() => bot.getProp('foo'))
-                .should.eventually.equal(value);
-        });
-
-        it('#getState', function() {
-            return bot.getState('bar').should.eventually.be.undefined;
-        });
-
-        it('#setState', function() {
-            let value = hat();
-            return bot.setProp('bar', value)
-                .then(() => bot.getProp('bar'))
-                .should.eventually.equal(value);
-        });
-
-        it('#acquireLock', function() {
-            return bot.acquireLock().should.eventually.be.true;
-        });
-
-        it('#acquireLock already acquired', function() {
-            return bot.acquireLock()
-                .then(() => bot.acquireLock())
-                .should.eventually.be.false;
-        });
-
-        it('#releaseLock', function() {
-            return bot.acquireLock()
-                .then(() => bot.releaseLock())
-                .then(() => bot.acquireLock())
-                .should.eventually.be.true;
-        });
     });
 });
