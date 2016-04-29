@@ -38,6 +38,16 @@ module.exports = new Script({
             }
     },
 
+    tellMore: {
+        prompt: (bot) => bot.say("If you want to learn more about Awdesh just type 'more'"),
+        receive: (bot, message) => {
+                let upperText = message.text.trim().toUpperCase();
+                if(upperText === "MORE"){
+                    return bot.say("Awdesh recently participated in AngelHack Hackathon Delievered successful project and pitched the idea to inverstors. Amazon recognized the effort and rewarded each team member with Fire-TV. Hurray!!!!"); 
+                }
+            }
+    },
+
     speak: {
         prompt: (bot) => bot.say('Anytime you can type Education, Blog, Career, Skill in order to learn about Awdesh'),
         receive: (bot, message) => {
@@ -65,7 +75,7 @@ module.exports = new Script({
                 }
 
                 if (!_.has(scriptRules, upperText)) {
-                    return bot.say("Sorry Awdesh didn't teach me that, but one day...").then(() => 'talkRandom');
+                    return bot.say("Sorry Awdesh didn't teach me that, but one day...").then(() => 'tellMore');
                 }
 
                 var response = scriptRules[upperText];
